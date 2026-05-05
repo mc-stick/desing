@@ -17,7 +17,7 @@ export default function Footer() {
           {/* Columna Logo */}
           <div className="col-span-1 md:col-span-1">
             <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-linear-to-r from-red-500 to-purple-500">
-              {BRAND_EMOJI} {BRAND_NAME}
+               {BRAND_NAME}
             </h3>
             <p 
               className="text-sm leading-relaxed opacity-70"

@@ -1,3 +1,4 @@
+import { MapPinIcon, PhoneCallIcon, PhoneIcon } from "lucide-react"
 import { useState } from "react"
 
 export default function Contact() {
@@ -79,15 +80,15 @@ export default function Contact() {
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center text-red-500">
-                    📍
+                    <MapPinIcon size={20} />
                   </div>
                   <span style={{ color: "var(--text-primary)" }}>Santiago, República Dominicana</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-500">
-                    📞
+                    <PhoneCallIcon size={20} />
                   </div>
-                  <span style={{ color: "var(--text-primary)" }}>+1 (809) 555-0123</span>
+                  <span style={{ color: "var(--text-primary)" }}>+1 (000) 000-0000</span>
                 </div>
               </div>
             </div>
@@ -160,7 +161,7 @@ export default function Contact() {
                 </button>
               </form>
 
-              <div 
+              {/* <div 
                 className="p-6 rounded-3xl border transition-all"
                 style={{ 
                   backgroundColor: "var(--background)", 
@@ -172,7 +173,7 @@ export default function Contact() {
                   Lunes a Viernes: 9:00 AM - 6:00 PM <br />
                   Sábados: 10:00 AM - 2:00 PM
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

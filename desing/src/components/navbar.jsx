@@ -13,6 +13,11 @@ export default function Navbar() {
     }
   }
 
+  const handleGoHome = () => {
+  navigate("/")
+  window.scrollTo({ top: 0, behavior: "smooth" })
+}
+
   return (
     <nav 
       className="sticky top-0 z-50 flex justify-between items-center px-8 py-4 transition-all duration-500 backdrop-blur-md border-b"
@@ -23,7 +28,7 @@ export default function Navbar() {
       }}
     >
       {/* Logo con gradiente */}
-      <div className="flex items-center gap-2 group cursor-pointer">
+      <div onClick={handleGoHome} className="flex items-center gap-2 group cursor-pointer">
         <span className="text-2xl group-hover:rotate-12 transition-transform duration-300">
           {BRAND_EMOJI}
         </span>
