@@ -4,22 +4,30 @@
   --background: #ffffff;
   --foreground: #1a1a1a;
   --nav-bg: #ffffff;
+
   --text-primary: #1f2937;
   --text-secondary: #4b5563;
-  --accent: #3b82f6;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+  /* 🎨 Nueva identidad creativa */
+  --accent: #ef4444; /* rojo principal */
+  --accent-secondary: #7c3aed; /* morado creativo */
+
+  --shadow: 0 10px 30px -10px rgba(239, 68, 68, 0.15);
   --border: #e5e7eb;
 }
 
 .dark {
-  --background: #000000;
+  --background: #0a0a0a;
   --foreground: #ffffff;
-  --nav-bg: #000000;
+  --nav-bg: #0a0a0a;
+
   --text-primary: #ffffff;
-  --text-secondary: #d1d5db;
-  --accent: #60a5fa;
-  --shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1);
-  --border: #374151;
+  --text-secondary: #cbd5e1;
+
+  /* 🌙 versión dark más vibrante */
+  --accent: #f87171; /* rojo suave luminoso */
+  --accent-secondary: #a78bfa; /* morado glow */
+
+  --shadow: 0 10px 40px -15px rgba(168, 85, 247, 0.25);
+  --border: #2a2a2a;
 }
- 
- 

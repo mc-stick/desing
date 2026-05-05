@@ -1,4 +1,3 @@
-// src/components/Gallery.jsx
 import { BRAND_NAME } from "../constants/branding"
 
 export default function Gallery() {
@@ -23,13 +22,13 @@ export default function Gallery() {
             className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tighter"
             style={{ color: "var(--text-primary)" }}
           >
-            Momentos <span className="text-blue-500">{BRAND_NAME}</span>
+            Proyectos de <span className="text-red-500">{BRAND_NAME}</span>
           </h2>
           <p 
             className="max-w-xl mx-auto opacity-70"
             style={{ color: "var(--text-secondary)" }}
           >
-            Un vistazo a nuestra clínica y a los pacientes felices que nos visitan cada día.
+            Un vistazo a nuestro trabajo creativo, identidades visuales y experiencias digitales diseñadas para marcas que buscan destacar.
           </p>
         </header>
 
@@ -49,7 +48,7 @@ export default function Gallery() {
               
               <img 
                 src={img} 
-                alt={`Mascota ${i}`}
+                alt={`Proyecto ${i}`}
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
               />
 
@@ -57,7 +56,7 @@ export default function Gallery() {
               <div className="absolute bottom-6 right-6 z-20 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                 <div 
                   className="p-3 rounded-full backdrop-blur-md border border-white/30 text-white text-xl"
-                  style={{ backgroundColor: "rgba(59, 130, 246, 0.5)" }}
+                  style={{ backgroundColor: "rgba(239, 68, 68, 0.5)" }}
                 >
                   🔍
                 </div>

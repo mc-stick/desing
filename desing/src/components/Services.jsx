@@ -1,13 +1,11 @@
-// src/components/Services.jsx
-
 export default function Services() {
 
   const services = [
-    { name: "Consultas", icon: "🩺", desc: "Chequeos generales y preventivos." },
-    { name: "Vacunación", icon: "💉", desc: "Esquemas completos para tu mascota." },
-    { name: "Cirugías", icon: "🏥", desc: "Procedimientos con tecnología avanzada." },
-    { name: "Emergencias", icon: "🚨", desc: "Atención crítica disponible 24/7." },
-    { name: "Grooming", icon: "✂️", desc: "Estética y baño profesional." }
+    { name: "Branding", icon: "🎨", desc: "Construcción de identidades visuales sólidas y memorables." },
+    { name: "Diseño UI/UX", icon: "🖥️", desc: "Interfaces modernas enfocadas en experiencia de usuario." },
+    { name: "Identidad Visual", icon: "✨", desc: "Sistemas gráficos completos para marcas profesionales." },
+    { name: "Consultoría Creativa", icon: "🚀", desc: "Dirección estratégica para potenciar tu marca." },
+    { name: "Contenido Digital", icon: "📱", desc: "Diseño de piezas visuales para redes y campañas." }
   ]
 
   return (
@@ -22,14 +20,13 @@ export default function Services() {
             className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight"
             style={{ color: "var(--text-primary)" }}
           >
-            Servicios <span className="text-blue-500">Especializados</span>
+            Servicios <span className="text-red-500">Creativos</span>
           </h2>
           <p 
             className="max-w-2xl mx-auto opacity-70 leading-relaxed"
             style={{ color: "var(--text-secondary)" }}
           >
-            Ofrecemos una gama completa de cuidados médicos y estéticos para garantizar 
-            una vida larga y saludable a tus compañeros.
+            Soluciones de diseño enfocadas en construir marcas fuertes, modernas y memorables en entornos digitales y físicos.
           </p>
         </header>
 
@@ -44,8 +41,8 @@ export default function Services() {
                 boxShadow: "var(--shadow)"
               }}
             >
-              {/* Círculo decorativo de fondo en hover */}
-              <div className="absolute inset-0 bg-blue-500/5 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* Fondo hover */}
+              <div className="absolute inset-0 bg-red-500/5 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               <div className="relative z-10">
                 <div className="text-5xl mb-6 transform transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
@@ -67,8 +64,8 @@ export default function Services() {
                 </p>
               </div>
 
-              {/* Indicador inferior sutil */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-blue-500 rounded-t-full transition-all duration-500 group-hover:w-1/2"></div>
+              {/* Indicador inferior */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-red-500 rounded-t-full transition-all duration-500 group-hover:w-1/2"></div>
             </div>
           ))}
         </div>

@@ -1,4 +1,3 @@
-// src/components/Contact.jsx
 import { useState } from "react"
 
 export default function Contact() {
@@ -29,10 +28,9 @@ export default function Contact() {
 
     setLoading(true)
     try {
-      // Simular envío a Supabase
       await new Promise(resolve => setTimeout(resolve, 1500))
       
-      console.log("📬 Mensaje enviado:", formData)
+      console.log("📬 Solicitud recibida:", formData)
       setSubmitted(true)
       setFormData({ name: '', email: '', message: '' })
       
@@ -58,9 +56,9 @@ export default function Contact() {
             borderColor: "var(--border)" 
           }}
         >
-          {/* Decoración de fondo sutil */}
-          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
+          {/* Decoración de fondo */}
+          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-64 h-64 bg-red-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
 
           <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -68,26 +66,25 @@ export default function Contact() {
                 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight transition-colors"
                 style={{ color: "var(--text-primary)" }}
               >
-                ¿Tienes dudas? <br />
-                <span className="text-blue-500">Estamos aquí.</span>
+                ¿Tienes una idea? <br />
+                <span className="text-red-500">Hagámosla realidad.</span>
               </h2>
               <p 
                 className="text-lg mb-8 opacity-80 leading-relaxed"
                 style={{ color: "var(--text-secondary)" }}
               >
-                Nuestro equipo de expertos está listo para atenderte a ti y a tu mascota. 
-                Visítanos en nuestra clínica o escríbenos directamente.
+                Nuestro equipo creativo está listo para ayudarte a construir tu marca, diseñar experiencias visuales únicas y llevar tu proyecto al siguiente nivel.
               </p>
 
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-500">
+                  <div className="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center text-red-500">
                     📍
                   </div>
                   <span style={{ color: "var(--text-primary)" }}>Santiago, República Dominicana</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-teal-500/20 flex items-center justify-center text-teal-500">
+                  <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-500">
                     📞
                   </div>
                   <span style={{ color: "var(--text-primary)" }}>+1 (809) 555-0123</span>
@@ -103,7 +100,7 @@ export default function Contact() {
                   placeholder="Tu nombre"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-6 py-3 rounded-2xl border transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-6 py-3 rounded-2xl border transition-all focus:outline-none focus:ring-2 focus:ring-red-500"
                   style={{ 
                     backgroundColor: "var(--background)", 
                     borderColor: "var(--border)",
@@ -116,7 +113,7 @@ export default function Contact() {
                   placeholder="tu@correo.com"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-6 py-3 rounded-2xl border transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-6 py-3 rounded-2xl border transition-all focus:outline-none focus:ring-2 focus:ring-red-500"
                   style={{ 
                     backgroundColor: "var(--background)", 
                     borderColor: "var(--border)",
@@ -125,11 +122,11 @@ export default function Contact() {
                 />
                 <textarea
                   name="message"
-                  placeholder="Tu mensaje..."
+                  placeholder="Cuéntanos sobre tu proyecto..."
                   rows="4"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-6 py-3 rounded-2xl border transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                  className="w-full px-6 py-3 rounded-2xl border transition-all focus:outline-none focus:ring-2 focus:ring-red-500 resize-none"
                   style={{ 
                     backgroundColor: "var(--background)", 
                     borderColor: "var(--border)",
@@ -138,18 +135,18 @@ export default function Contact() {
                 ></textarea>
 
                 {submitted && (
-                  <div className="p-4 rounded-xl bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-sm font-medium">
-                    ✅ ¡Mensaje enviado exitosamente! Te contactaremos pronto.
+                  <div className="p-4 rounded-xl bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-sm font-medium">
+                    ✅ ¡Solicitud enviada! Te contactaremos pronto.
                   </div>
                 )}
 
                 <button 
                   type="submit"
                   disabled={loading}
-                  className="w-full py-5 rounded-2xl font-bold text-xl text-white shadow-xl hover:shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 flex items-center justify-center gap-2"
+                  className="w-full py-5 rounded-2xl font-bold text-xl text-white shadow-xl hover:shadow-red-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 flex items-center justify-center gap-2"
                   style={{ 
                     backgroundColor: "var(--accent)",
-                    boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.4)"
+                    boxShadow: "0 10px 25px -5px rgba(239, 68, 68, 0.4)"
                   }}
                 >
                   {loading ? (
@@ -158,7 +155,7 @@ export default function Contact() {
                       Enviando...
                     </>
                   ) : (
-                    'Enviar Mensaje'
+                    'Iniciar Proyecto'
                   )}
                 </button>
               </form>
@@ -172,8 +169,8 @@ export default function Contact() {
               >
                 <h4 className="font-bold mb-2" style={{ color: "var(--text-primary)" }}>Horario de Atención</h4>
                 <p className="text-sm opacity-70" style={{ color: "var(--text-secondary)" }}>
-                  Lunes a Viernes: 8:00 AM - 7:00 PM <br />
-                  Sábados: 9:00 AM - 2:00 PM
+                  Lunes a Viernes: 9:00 AM - 6:00 PM <br />
+                  Sábados: 10:00 AM - 2:00 PM
                 </p>
               </div>
             </div>

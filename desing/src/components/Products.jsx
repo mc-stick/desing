@@ -1,4 +1,3 @@
-// src/components/Products.jsx
 import { useEffect, useState } from "react"
 import { BRAND_NAME } from "../constants/branding"
 // import { fetchSupabaseData } from "../lib/supabase"
@@ -10,28 +9,28 @@ export default function Products() {
   const mockProducts = [
     {
       id: 1,
-      name: "Alimento Premium",
-      description: "Nutrición completa para perros adultos, mejora la salud y energía.",
-      price: 25.00,
-      category: "Nutrición",
+      name: "Brand Kit Premium",
+      description: "Identidad visual completa con guía de marca, tipografías y sistema gráfico profesional.",
+      price: 250.00,
+      category: "Branding",
       stock: 50,
       image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e"
     },
     {
       id: 2,
-      name: "Arena Crystal",
-      description: "Alta absorción y control de olores para tu gato.",
-      price: 12.50,
-      category: "Higiene",
+      name: "UI Design System",
+      description: "Sistema de componentes UI listo para proyectos digitales modernos y escalables.",
+      price: 180.00,
+      category: "UI/UX",
       stock: 30,
       image: "https://images.unsplash.com/photo-1598137260536-3b8a4d3f9c89"
     },
     {
       id: 3,
-      name: "Mordedor Rubber",
-      description: "Juguete resistente para mantener a tu mascota activa y feliz.",
-      price: 8.99,
-      category: "Juguetes",
+      name: "Social Media Kit",
+      description: "Plantillas profesionales para redes sociales optimizadas para engagement y marca.",
+      price: 95.00,
+      category: "Marketing",
       stock: 75,
       image: "https://images.unsplash.com/photo-1601758123927-196c1d0f5b6b"
     }
@@ -41,15 +40,6 @@ export default function Products() {
     const loadProducts = async () => {
       setLoading(true)
       try {
-        // TODO: Descomentar cuando Supabase esté configurado
-        // const data = await fetchSupabaseData('products', { filter: 'stock', value: { _gt: 0 } })
-        // if (data.length > 0) {
-        //   setProducts(data.filter(p => p.stock > 0))
-        // } else {
-        //   setProducts(mockProducts)
-        // }
-        
-        // Por ahora: usar mock como fallback
         setProducts(mockProducts.filter(p => p.stock > 0))
       } catch (error) {
         console.error('Error cargando productos:', error)
@@ -75,15 +65,17 @@ export default function Products() {
               className="text-4xl font-extrabold tracking-tight mb-2"
               style={{ color: "var(--text-primary)" }}
             >
-              Tienda <span className="text-blue-500">{BRAND_NAME}</span>
+              Estudio <span className="text-red-500">{BRAND_NAME}</span>
             </h2>
-            <p style={{ color: "var(--text-secondary)" }}>Lo mejor para el bienestar de tu compañero.</p>
+            <p style={{ color: "var(--text-secondary)" }}>
+              Recursos creativos para potenciar tu identidad visual.
+            </p>
           </div>
           <button 
-            className="text-sm font-bold uppercase tracking-widest hover:text-blue-500 transition-colors"
+            className="text-sm font-bold uppercase tracking-widest hover:text-red-500 transition-colors"
             style={{ color: "var(--text-primary)" }}
           >
-            Ver catálogo completo →
+            Ver servicios completos →
           </button>
         </header>
 
@@ -91,9 +83,9 @@ export default function Products() {
         {loading && (
           <div className="flex justify-center items-center py-12">
             <div className="flex gap-2">
-              <div className="w-3 h-3 rounded-full bg-blue-500 animate-bounce" style={{ animationDelay: '0s' }}></div>
-              <div className="w-3 h-3 rounded-full bg-blue-500 animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-              <div className="w-3 h-3 rounded-full bg-blue-500 animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+              <div className="w-3 h-3 rounded-full bg-red-500 animate-bounce" style={{ animationDelay: '0s' }}></div>
+              <div className="w-3 h-3 rounded-full bg-red-500 animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+              <div className="w-3 h-3 rounded-full bg-red-500 animate-bounce" style={{ animationDelay: '0.2s' }}></div>
             </div>
           </div>
         )}
@@ -110,7 +102,7 @@ export default function Products() {
                   boxShadow: "var(--shadow)" 
                 }}
               >
-                {/* Contenedor de Imagen */}
+                {/* Imagen */}
                 <div className="relative p-3">
                   <div className="overflow-hidden rounded-[1.5rem] h-56 relative">
                     <img 
@@ -118,16 +110,16 @@ export default function Products() {
                       alt={p.name}
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    {/* Badge de Precio */}
+                    {/* Precio */}
                     <div className="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-md px-3 py-1 rounded-full shadow-lg font-bold text-sm">
                       <p style={{ color: "var(--text-secondary)" }}>${p.price.toFixed(2)}</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Información del Producto */}
+                {/* Info */}
                 <div className="p-6 pt-2">
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-blue-500 mb-1 block">
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-red-500 mb-1 block">
                     {p.category}
                   </span>
                   <h3 
@@ -144,10 +136,10 @@ export default function Products() {
                   </p>
 
                   <button 
-                    className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold transition-all duration-300 bg-gray-100 hover:bg-blue-500 hover:text-white dark:bg-gray-800 dark:hover:bg-blue-600"
+                    className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold transition-all duration-300 bg-gray-100 hover:bg-red-500 hover:text-white dark:bg-gray-800 dark:hover:bg-red-600"
                     style={{ color: "var(--text-primary)" }}
                   >
-                    <span>🛒</span> Añadir al carrito
+                    <span>🎨</span> Ver servicio
                   </button>
                 </div>
               </div>

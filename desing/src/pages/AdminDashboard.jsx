@@ -1,92 +1,85 @@
-/**
- * AdminDashboard Component
- * Panel de control administrativo con gestión de:
- * - Adopciones
- * - Productos
- * - Mensajes de contacto
- */
-
 import { useState } from 'react'
 import { BRAND_NAME, BRAND_EMOJI } from '../constants/branding'
 import { useNavigate } from 'react-router-dom'
 
 export default function AdminDashboard({ onLogout }) {
   const navigate = useNavigate()
-  const [activeTab, setActiveTab] = useState('adopciones')
+  const [activeTab, setActiveTab] = useState('proyectos')
   const [loading, setLoading] = useState(false)
 
-  // ADOPCIONES STATE
-  const [adoptionForm, setAdoptionForm] = useState({
+  // PROYECTOS STATE
+  const [projectForm, setProjectForm] = useState({
     name: '',
-    type: 'perro',
-    age: '',
-    personality: '',
+    type: 'branding',
+    description: '',
+    client: '',
     image: ''
   })
-  const [adoptions, setAdoptions] = useState([
-    { id: 1, name: 'Max', type: 'perro', age: 3, personality: 'Juguetón', status: '✅ Disponible' }
+
+  const [projects, setProjects] = useState([
+    { id: 1, name: 'Identidad Visual Nova', type: 'branding', client: 'Studio X', status: '✅ Activo' }
   ])
 
-  // PRODUCTOS STATE
-  const [productForm, setProductForm] = useState({
+  // PRODUCTOS / SERVICIOS STATE
+  const [serviceForm, setServiceForm] = useState({
     name: '',
     price: '',
     description: '',
-    category: 'Nutrición',
+    category: 'Branding',
     image: ''
   })
-  const [products, setProducts] = useState([
-    { id: 1, name: 'Alimento Premium', price: 25, category: 'Nutrición' }
+
+  const [services, setServices] = useState([
+    { id: 1, name: 'Branding Corporativo', price: 500, category: 'Branding' }
   ])
 
   // CONTACTOS STATE
   const [messages] = useState([
-    { id: 1, name: 'Juan', email: 'juan@example.com', message: 'Consulta sobre citas', date: '2026-05-04', status: '📋 Nuevo' }
+    { id: 1, name: 'Cliente', email: 'cliente@correo.com', message: 'Quiero cotizar un logo', date: '2026-05-04', status: '📩 Nuevo' }
   ])
 
-  // HANDLERS
-  const handleAdoptionChange = (e) => {
+  const handleProjectChange = (e) => {
     const { name, value } = e.target
-    setAdoptionForm(prev => ({ ...prev, [name]: value }))
+    setProjectForm(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleProductChange = (e) => {
+  const handleServiceChange = (e) => {
     const { name, value } = e.target
-    setProductForm(prev => ({ ...prev, [name]: value }))
+    setServiceForm(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleAddAdoption = async (e) => {
+  const handleAddProject = async (e) => {
     e.preventDefault()
     setLoading(true)
     try {
-      await new Promise(resolve => setTimeout(resolve, 800))
-      const newAdoption = {
-        id: Date.now(),
-        ...adoptionForm,
-        age: parseInt(adoptionForm.age),
-        status: '✅ Disponible'
-      }
-      setAdoptions([...adoptions, newAdoption])
-      setAdoptionForm({ name: '', type: 'perro', age: '', personality: '', image: '' })
-      alert('✅ Mascota agregada exitosamente')
+      await new Promise(r => setTimeout(r, 800))
+      setProjects([
+        ...projects,
+        {
+          id: Date.now(),
+          ...projectForm
+        }
+      ])
+      setProjectForm({ name: '', type: 'branding', description: '', client: '', image: '' })
     } finally {
       setLoading(false)
     }
   }
 
-  const handleAddProduct = async (e) => {
+  const handleAddService = async (e) => {
     e.preventDefault()
     setLoading(true)
     try {
-      await new Promise(resolve => setTimeout(resolve, 800))
-      const newProduct = {
-        id: Date.now(),
-        ...productForm,
-        price: parseFloat(productForm.price)
-      }
-      setProducts([...products, newProduct])
-      setProductForm({ name: '', price: '', description: '', category: 'Nutrición', image: '' })
-      alert('✅ Producto agregado exitosamente')
+      await new Promise(r => setTimeout(r, 800))
+      setServices([
+        ...services,
+        {
+          id: Date.now(),
+          ...serviceForm,
+          price: parseFloat(serviceForm.price)
+        }
+      ])
+      setServiceForm({ name: '', price: '', description: '', category: 'Branding', image: '' })
     } finally {
       setLoading(false)
     }
@@ -100,299 +93,189 @@ export default function AdminDashboard({ onLogout }) {
   }
 
   return (
-    <div 
-      className="min-h-screen transition-colors duration-500"
+    <div className="min-h-screen transition-colors duration-500"
       style={{ backgroundColor: "var(--background)" }}
     >
-      {/* Header */}
-      <header 
-        className="sticky top-0 z-40 border-b backdrop-blur-md"
+
+      {/* HEADER */}
+      <header className="sticky top-0 z-40 border-b backdrop-blur-md"
         style={{ backgroundColor: "var(--nav-bg)", borderColor: "var(--border)" }}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <span className="text-3xl">{BRAND_EMOJI}</span>
             <div>
-              <h1 
-                className="text-2xl font-extrabold"
+              <h1 className="text-2xl font-extrabold"
                 style={{ color: "var(--text-primary)" }}
               >
-                {BRAND_NAME} Admin
+                {BRAND_NAME} Studio
               </h1>
-              <p style={{ color: "var(--text-secondary)" }} className="text-xs">
-                Panel de administración
+              <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
+                Panel creativo de gestión
               </p>
             </div>
           </div>
+
           <button
             onClick={handleLogout}
-            className="px-4 py-2 rounded-lg font-medium transition-all hover:opacity-80"
-            style={{ 
-              backgroundColor: "rgba(239, 68, 68, 0.1)",
+            className="px-4 py-2 rounded-lg font-medium"
+            style={{
+              backgroundColor: "rgba(239,68,68,0.1)",
               color: "#ef4444",
-              border: "1px solid rgba(239, 68, 68, 0.3)"
+              border: "1px solid rgba(239,68,68,0.3)"
             }}
           >
-            🚪 Cerrar Sesión
+            🚪 Salir
           </button>
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-6 py-12">
-        {/* Tabs Navigation */}
-        <div className="flex gap-4 mb-8 border-b" style={{ borderColor: "var(--border)" }}>
+
+        {/* TABS */}
+        <div className="flex gap-4 mb-8 border-b"
+          style={{ borderColor: "var(--border)" }}
+        >
           {[
-            { id: 'adopciones', label: '🐾 Adopciones' },
-            { id: 'productos', label: '🛒 Productos' },
-            { id: 'mensajes', label: '📬 Mensajes' }
+            { id: 'proyectos', label: '🎨 Proyectos' },
+            { id: 'servicios', label: '🧩 Servicios' },
+            { id: 'mensajes', label: '📩 Mensajes' }
           ].map(tab => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-6 py-3 font-medium transition-all border-b-2 ${
-                activeTab === tab.id 
-                  ? 'border-blue-500 text-blue-500' 
-                  : 'border-transparent opacity-60 hover:opacity-100'
+              className={`px-6 py-3 border-b-2 font-medium ${
+                activeTab === tab.id ? 'text-red-500 border-red-500' : 'opacity-60'
               }`}
-              style={{ color: activeTab === tab.id ? 'var(--accent)' : 'var(--text-primary)' }}
+              style={{
+                color: activeTab === tab.id ? "var(--accent)" : "var(--text-primary)"
+              }}
             >
               {tab.label}
             </button>
           ))}
         </div>
 
-        {/* ADOPCIONES TAB */}
-        {activeTab === 'adopciones' && (
+        {/* PROYECTOS */}
+        {activeTab === 'proyectos' && (
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Formulario */}
-            <div 
-              className="rounded-2xl p-6 border"
+
+            <div className="p-6 rounded-2xl border"
               style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}
             >
-              <h2 className="text-xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
-                Agregar Mascota
-              </h2>
-              <form onSubmit={handleAddAdoption} className="space-y-4">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Nombre"
-                  value={adoptionForm.name}
-                  onChange={handleAdoptionChange}
-                  className="w-full px-3 py-2 rounded-lg border"
-                  style={{ backgroundColor: "var(--background)", borderColor: "var(--border)", color: "var(--text-primary)" }}
-                  required
+              <h2 className="text-xl font-bold mb-6">Nuevo Proyecto</h2>
+
+              <form onSubmit={handleAddProject} className="space-y-4">
+                <input name="name" placeholder="Nombre del proyecto"
+                  onChange={handleProjectChange}
+                  value={projectForm.name}
+                  className="w-full p-2 rounded-lg border"
                 />
-                <select
-                  name="type"
-                  value={adoptionForm.type}
-                  onChange={handleAdoptionChange}
-                  className="w-full px-3 py-2 rounded-lg border"
-                  style={{ backgroundColor: "var(--background)", borderColor: "var(--border)", color: "var(--text-primary)" }}
-                >
-                  <option>perro</option>
-                  <option>gato</option>
-                </select>
-                <input
-                  type="number"
-                  name="age"
-                  placeholder="Edad (años)"
-                  value={adoptionForm.age}
-                  onChange={handleAdoptionChange}
-                  className="w-full px-3 py-2 rounded-lg border"
-                  style={{ backgroundColor: "var(--background)", borderColor: "var(--border)", color: "var(--text-primary)" }}
-                  required
+                <input name="client" placeholder="Cliente"
+                  onChange={handleProjectChange}
+                  value={projectForm.client}
+                  className="w-full p-2 rounded-lg border"
                 />
-                <textarea
-                  name="personality"
-                  placeholder="Personalidad"
-                  value={adoptionForm.personality}
-                  onChange={handleAdoptionChange}
-                  className="w-full px-3 py-2 rounded-lg border"
-                  style={{ backgroundColor: "var(--background)", borderColor: "var(--border)", color: "var(--text-primary)" }}
-                  rows="3"
-                ></textarea>
-                <input
-                  type="url"
-                  name="image"
-                  placeholder="URL de imagen"
-                  value={adoptionForm.image}
-                  onChange={handleAdoptionChange}
-                  className="w-full px-3 py-2 rounded-lg border"
-                  style={{ backgroundColor: "var(--background)", borderColor: "var(--border)", color: "var(--text-primary)" }}
+                <textarea name="description" placeholder="Descripción"
+                  onChange={handleProjectChange}
+                  value={projectForm.description}
+                  className="w-full p-2 rounded-lg border"
                 />
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full py-2 rounded-lg font-bold text-white transition-all disabled:opacity-50"
+
+                <button className="w-full py-2 rounded-lg text-white"
                   style={{ backgroundColor: "var(--accent)" }}
                 >
-                  {loading ? 'Guardando...' : '➕ Agregar'}
+                  Agregar
                 </button>
               </form>
             </div>
 
-            {/* Listado */}
-            <div className="md:col-span-2">
-              <h2 className="text-xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
-                Mascotas Registradas
-              </h2>
-              <div className="space-y-4">
-                {adoptions.map(pet => (
-                  <div 
-                    key={pet.id}
-                    className="p-4 rounded-xl border flex justify-between items-center"
-                    style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}
-                  >
-                    <div>
-                      <h3 className="font-bold" style={{ color: "var(--text-primary)" }}>
-                        {pet.name}
-                      </h3>
-                      <p className="text-sm opacity-70" style={{ color: "var(--text-secondary)" }}>
-                        {pet.type} • {pet.age} años
-                      </p>
-                    </div>
-                    <span className="text-sm font-medium">{pet.status}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* PRODUCTOS TAB */}
-        {activeTab === 'productos' && (
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Formulario */}
-            <div 
-              className="rounded-2xl p-6 border"
-              style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}
-            >
-              <h2 className="text-xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
-                Nuevo Producto
-              </h2>
-              <form onSubmit={handleAddProduct} className="space-y-4">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Nombre"
-                  value={productForm.name}
-                  onChange={handleProductChange}
-                  className="w-full px-3 py-2 rounded-lg border"
-                  style={{ backgroundColor: "var(--background)", borderColor: "var(--border)", color: "var(--text-primary)" }}
-                  required
-                />
-                <input
-                  type="number"
-                  step="0.01"
-                  name="price"
-                  placeholder="Precio"
-                  value={productForm.price}
-                  onChange={handleProductChange}
-                  className="w-full px-3 py-2 rounded-lg border"
-                  style={{ backgroundColor: "var(--background)", borderColor: "var(--border)", color: "var(--text-primary)" }}
-                  required
-                />
-                <select
-                  name="category"
-                  value={productForm.category}
-                  onChange={handleProductChange}
-                  className="w-full px-3 py-2 rounded-lg border"
-                  style={{ backgroundColor: "var(--background)", borderColor: "var(--border)", color: "var(--text-primary)" }}
+            <div className="md:col-span-2 space-y-4">
+              {projects.map(p => (
+                <div key={p.id}
+                  className="p-4 rounded-xl border flex justify-between"
+                  style={{ backgroundColor: "var(--card)" }}
                 >
-                  <option>Nutrición</option>
-                  <option>Higiene</option>
-                  <option>Juguetes</option>
-                </select>
-                <textarea
-                  name="description"
-                  placeholder="Descripción"
-                  value={productForm.description}
-                  onChange={handleProductChange}
-                  className="w-full px-3 py-2 rounded-lg border"
-                  style={{ backgroundColor: "var(--background)", borderColor: "var(--border)", color: "var(--text-primary)" }}
-                  rows="3"
-                ></textarea>
-                <input
-                  type="url"
-                  name="image"
-                  placeholder="URL de imagen"
-                  value={productForm.image}
-                  onChange={handleProductChange}
-                  className="w-full px-3 py-2 rounded-lg border"
-                  style={{ backgroundColor: "var(--background)", borderColor: "var(--border)", color: "var(--text-primary)" }}
-                />
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full py-2 rounded-lg font-bold text-white transition-all disabled:opacity-50"
-                  style={{ backgroundColor: "var(--accent)" }}
-                >
-                  {loading ? 'Guardando...' : '➕ Agregar'}
-                </button>
-              </form>
-            </div>
-
-            {/* Listado */}
-            <div className="md:col-span-2">
-              <h2 className="text-xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
-                Inventario
-              </h2>
-              <div className="space-y-4">
-                {products.map(prod => (
-                  <div 
-                    key={prod.id}
-                    className="p-4 rounded-xl border flex justify-between items-center"
-                    style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}
-                  >
-                    <div>
-                      <h3 className="font-bold" style={{ color: "var(--text-primary)" }}>
-                        {prod.name}
-                      </h3>
-                      <p className="text-sm opacity-70" style={{ color: "var(--text-secondary)" }}>
-                        {prod.category}
-                      </p>
-                    </div>
-                    <span className="font-bold text-blue-500">${prod.price.toFixed(2)}</span>
+                  <div>
+                    <h3 className="font-bold">{p.name}</h3>
+                    <p className="text-sm opacity-70">{p.client}</p>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* MENSAJES TAB */}
-        {activeTab === 'mensajes' && (
-          <div>
-            <h2 className="text-xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>
-              Buzón de Contacto
-            </h2>
-            <div className="space-y-4">
-              {messages.map(msg => (
-                <div 
-                  key={msg.id}
-                  className="p-6 rounded-xl border"
-                  style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}
-                >
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h3 className="font-bold text-lg" style={{ color: "var(--text-primary)" }}>
-                        {msg.name}
-                      </h3>
-                      <p className="text-sm opacity-70" style={{ color: "var(--text-secondary)" }}>
-                        {msg.email} • {msg.date}
-                      </p>
-                    </div>
-                    <span className="px-3 py-1 rounded-lg text-sm font-medium" style={{ backgroundColor: "rgba(59, 130, 246, 0.1)", color: "var(--accent)" }}>
-                      {msg.status}
-                    </span>
-                  </div>
-                  <p style={{ color: "var(--text-primary)" }}>{msg.message}</p>
+                  <span>{p.status}</span>
                 </div>
               ))}
             </div>
+
           </div>
         )}
+
+        {/* SERVICIOS */}
+        {activeTab === 'servicios' && (
+          <div className="grid md:grid-cols-3 gap-8">
+
+            <div className="p-6 rounded-2xl border"
+              style={{ backgroundColor: "var(--card)" }}
+            >
+              <h2 className="text-xl font-bold mb-6">Nuevo Servicio</h2>
+
+              <form onSubmit={handleAddService} className="space-y-4">
+                <input name="name" placeholder="Nombre"
+                  value={serviceForm.name}
+                  onChange={handleServiceChange}
+                  className="w-full p-2 border rounded-lg"
+                />
+                <input name="price" placeholder="Precio"
+                  value={serviceForm.price}
+                  onChange={handleServiceChange}
+                  className="w-full p-2 border rounded-lg"
+                />
+                <textarea name="description" placeholder="Descripción"
+                  value={serviceForm.description}
+                  onChange={handleServiceChange}
+                  className="w-full p-2 border rounded-lg"
+                />
+
+                <button className="w-full py-2 rounded-lg text-white"
+                  style={{ backgroundColor: "var(--accent)" }}
+                >
+                  Agregar
+                </button>
+              </form>
+            </div>
+
+            <div className="md:col-span-2 space-y-4">
+              {services.map(s => (
+                <div key={s.id}
+                  className="p-4 border rounded-xl flex justify-between"
+                  style={{ backgroundColor: "var(--card)" }}
+                >
+                  <div>
+                    <h3 className="font-bold">{s.name}</h3>
+                    <p className="text-sm opacity-70">{s.category}</p>
+                  </div>
+                  <span>${s.price}</span>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        )}
+
+        {/* MENSAJES */}
+        {activeTab === 'mensajes' && (
+          <div className="space-y-4">
+            {messages.map(m => (
+              <div key={m.id}
+                className="p-6 border rounded-xl"
+                style={{ backgroundColor: "var(--card)" }}
+              >
+                <h3 className="font-bold">{m.name}</h3>
+                <p className="text-sm opacity-70">{m.email}</p>
+                <p className="mt-2">{m.message}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
       </main>
     </div>
   )

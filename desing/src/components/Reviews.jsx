@@ -1,4 +1,3 @@
-// src/components/Reviews.jsx
 import { useEffect, useState } from "react"
 
 export default function Reviews() {
@@ -10,21 +9,21 @@ export default function Reviews() {
       name: "María López",
       rating: 5,
       date: "Hace 2 días",
-      comment: "Excelente atención, trataron a mi perro con mucho cariño. ¡Max salió feliz de su consulta! 🐶"
+      comment: "El equipo entendió perfectamente nuestra marca. El resultado del branding superó nuestras expectativas 🚀"
     },
     {
       id: 2,
       name: "Carlos Pérez",
       rating: 4,
       date: "Hace 1 semana",
-      comment: "Muy buen servicio y precios accesibles. El personal es muy atento y las instalaciones están impecables."
+      comment: "Excelente diseño UI/UX, muy profesional y enfocado en la experiencia del usuario. Gran trabajo."
     },
     {
       id: 3,
       name: "Ana Rodríguez",
       rating: 5,
       date: "Hace 2 semanas",
-      comment: "La mejor veterinaria de la zona, súper profesionales. Se nota que aman lo que hacen. ❤️"
+      comment: "Transformaron por completo la identidad visual de nuestra empresa. Ahora nuestra marca se ve mucho más sólida ❤️"
     }
   ]
 
@@ -43,13 +42,13 @@ export default function Reviews() {
             className="text-4xl font-extrabold mb-4 tracking-tight"
             style={{ color: "var(--text-primary)" }}
           >
-            Lo que dicen <span className="text-blue-500">nuestros clientes</span>
+            Lo que dicen <span className="text-red-500">nuestros clientes</span>
           </h2>
           <div className="flex justify-center gap-1 text-2xl text-yellow-500">
             {"★★★★★"}
           </div>
           <p className="mt-2 text-sm font-medium opacity-60" style={{ color: "var(--text-secondary)" }}>
-            Basado en más de 500 opiniones reales
+            Basado en proyectos de branding y diseño entregados con éxito
           </p>
         </div>
 

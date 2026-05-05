@@ -1,74 +1,64 @@
-// src/components/Adoption.jsx
 import { useEffect, useState } from "react"
 // import { fetchSupabaseData } from "../lib/supabase"
 
-export default function Adoption() {
-  const [pets, setPets] = useState([])
+export default function Proyectos() {
+  const [projects, setProjects] = useState([])
   const [filter, setFilter] = useState("all")
   const [loading, setLoading] = useState(false)
 
-  const mockPets = [
+  const mockProjects = [
     {
       id: 1,
-      name: "Max",
-      type: "perro",
-      age: 3,
-      size: "mediano",
-      personality: "Juguetón y amigable",
-      health: "Vacunado y desparasitado",
+      name: "Branding Nova",
+      type: "branding",
+      complexity: "media",
+      duration: "2 semanas",
+      description: "Identidad visual moderna y versátil",
+      status: "Completado",
       disponible: true,
-      image: "https://images.unsplash.com/photo-1558788353-f76d92427f16"
+      image: "https://images.unsplash.com/photo-1558655146-d09347e92766"
     },
     {
       id: 2,
-      name: "Luna",
-      type: "gato",
-      age: 2,
-      size: "pequeño",
-      personality: "Tranquila y cariñosa",
-      health: "Esterilizada",
+      name: "UI App Zen",
+      type: "ui",
+      complexity: "alta",
+      duration: "3 semanas",
+      description: "Diseño limpio enfocado en experiencia de usuario",
+      status: "Completado",
       disponible: true,
-      image: "https://images.unsplash.com/photo-1595433562696-9b2c3d7f4f74"
+      image: "https://images.unsplash.com/photo-1559028012-481c04fa702d"
     },
     {
       id: 3,
-      name: "Rocky",
-      type: "perro",
-      age: 4,
-      size: "grande",
-      personality: "Protector y leal",
-      health: "Salud excelente",
+      name: "Social Media Kit",
+      type: "marketing",
+      complexity: "baja",
+      duration: "1 semana",
+      description: "Contenido visual atractivo para redes sociales",
+      status: "Completado",
       disponible: true,
-      image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1"
+      image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0"
     }
   ]
 
   useEffect(() => {
-    const loadPets = async () => {
+    const loadProjects = async () => {
       setLoading(true)
       try {
-        // TODO: Descomentar cuando Supabase esté configurado
-        // const data = await fetchSupabaseData('pets', { filter: 'disponible', value: true })
-        // if (data.length > 0) {
-        //   setPets(data)
-        // } else {
-        //   setPets(mockPets)
-        // }
-        
-        // Por ahora: usar mock como fallback
-        setPets(mockPets.filter(p => p.disponible === true))
+        setProjects(mockProjects.filter(p => p.disponible === true))
       } catch (error) {
-        console.error('Error cargando mascotas:', error)
-        setPets(mockPets)
+        console.error('Error cargando proyectos:', error)
+        setProjects(mockProjects)
       } finally {
         setLoading(false)
       }
     }
 
-    loadPets()
+    loadProjects()
   }, [])
 
-  const filtered = filter === "all" ? pets : pets.filter(p => p.type === filter)
+  const filtered = filter === "all" ? projects : projects.filter(p => p.type === filter)
 
   return (
     <section 
@@ -82,20 +72,20 @@ export default function Adoption() {
             className="text-4xl font-extrabold mb-4 tracking-tight transition-colors"
             style={{ color: "var(--text-primary)" }}
           >
-            Nuestros Amigos
+            Nuestros Proyectos
           </h2>
-          <div className="h-1 w-20 bg-blue-500 mx-auto rounded-full"></div>
+          <div className="h-1 w-20 bg-red-500 mx-auto rounded-full"></div>
         </header>
 
-        {/* Filtros Elegantes */}
+        {/* Filtros */}
         <div className="flex justify-center gap-4 mb-10">
-          {["all", "perro", "gato"].map((type) => (
+          {["all", "branding", "ui"].map((type) => (
             <button
               key={type}
               onClick={() => setFilter(type)}
               className={`px-6 py-2 rounded-xl font-medium transition-all duration-300 border ${
                 filter === type 
-                  ? "bg-blue-600 text-white border-blue-600 shadow-lg scale-105" 
+                  ? "bg-red-600 text-white border-red-600 shadow-lg scale-105" 
                   : "opacity-70 hover:opacity-100"
               }`}
               style={{ 
@@ -109,18 +99,18 @@ export default function Adoption() {
           ))}
         </div>
 
-        {/* Loading State */}
+        {/* Loading */}
         {loading && (
           <div className="flex justify-center items-center py-12">
             <div className="flex gap-2">
-              <div className="w-3 h-3 rounded-full bg-blue-500 animate-bounce" style={{ animationDelay: '0s' }}></div>
-              <div className="w-3 h-3 rounded-full bg-blue-500 animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-              <div className="w-3 h-3 rounded-full bg-blue-500 animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+              <div className="w-3 h-3 rounded-full bg-red-500 animate-bounce" style={{ animationDelay: '0s' }}></div>
+              <div className="w-3 h-3 rounded-full bg-red-500 animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+              <div className="w-3 h-3 rounded-full bg-red-500 animate-bounce" style={{ animationDelay: '0.2s' }}></div>
             </div>
           </div>
         )}
 
-        {/* Grid de Cards Premium */}
+        {/* Grid */}
         {!loading && (
           <div className="grid md:grid-cols-3 gap-8">
             {filtered.map(p => (
@@ -152,8 +142,8 @@ export default function Adoption() {
                     >
                       {p.name}
                     </h3>
-                    <span className="text-sm font-medium px-2 py-1 rounded-md bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
-                      {p.age} años
+                    <span className="text-sm font-medium px-2 py-1 rounded-md bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400">
+                      {p.duration}
                     </span>
                   </div>
                   
@@ -161,7 +151,7 @@ export default function Adoption() {
                     className="text-sm leading-relaxed mb-6 h-10 transition-colors"
                     style={{ color: "var(--text-secondary)" }}
                   >
-                    {p.personality}
+                    {p.description}
                   </p>
 
                   <button 
@@ -171,7 +161,7 @@ export default function Adoption() {
                       color: "#ffffff"
                     }}
                   >
-                    Conocer a {p.name}
+                    Ver proyecto
                   </button>
                 </div>
               </div>

@@ -24,9 +24,11 @@ export default function Navbar() {
     >
       {/* Logo con gradiente */}
       <div className="flex items-center gap-2 group cursor-pointer">
-        <span className="text-2xl group-hover:rotate-12 transition-transform duration-300">{BRAND_EMOJI}</span>
+        <span className="text-2xl group-hover:rotate-12 transition-transform duration-300">
+          {BRAND_EMOJI}
+        </span>
         <h1 
-          className="font-extrabold text-2xl tracking-tight transition-colors bg-clip-text text-transparent bg-linear-to-r from-blue-500 to-teal-400"
+          className="font-extrabold text-2xl tracking-tight transition-colors bg-clip-text text-transparent bg-linear-to-r from-red-500 to-purple-500"
         >
           {BRAND_NAME}
         </h1>
@@ -42,7 +44,7 @@ export default function Navbar() {
             onClick={() => handleSmoothScroll(item.id)}
           >
             {item.label}
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
           </li>
         ))}
       </ul>
@@ -58,9 +60,9 @@ export default function Navbar() {
             borderColor: "var(--border)",
             color: "var(--text-primary)"
           }}
-          title="Acceso de administrador"
+          title="Panel de gestión creativa"
         >
-          ⚙️ Admin
+          🎨 Admin
         </button>
 
         {/* Botón de tema estilizado */}

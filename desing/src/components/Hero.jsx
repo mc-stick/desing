@@ -1,4 +1,3 @@
-// src/components/Hero.jsx
 import { BRAND_EMOJI, BRAND_DESCRIPTION } from "../constants/branding"
 
 export default function Hero() {
@@ -16,31 +15,22 @@ export default function Hero() {
       className="relative overflow-hidden py-24 md:py-32 px-6 transition-colors duration-500"
       style={{ backgroundColor: "var(--background)" }}
     >
-      {/* Elementos decorativos de fondo (Luces de colores) */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 bg-blue-500/10 blur-[120px] rounded-full"></div>
+      {/* Elementos decorativos de fondo */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 bg-red-500/10 blur-[120px] rounded-full"></div>
       
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         {/* Badge superior */}
-        <span 
-          className="inline-block px-4 py-1.5 rounded-full text-sm font-bold mb-6 tracking-wide shadow-sm border"
-          style={{ 
-            backgroundColor: "var(--card)", 
-            color: "var(--accent)",
-            borderColor: "var(--border)"
-          }}
-        >
-          🐶 CLÍNICA VETERINARIA 24/7
-        </span>
+        
 
         {/* Título Principal con gradiente */}
         <h2 
-          className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tighter leading-tight transition-colors"
+          className="text-5xl md:text-5xl font-extrabold mb-8 tracking-tighter leading-tight transition-colors"
           style={{ color: "var(--text-primary)" }}
         >
-          Cuidamos a tu <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">
-            mejor amigo
-          </span> {BRAND_EMOJI}
+          Creamos tus ideas en  <br />
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-purple-500">
+           imágenes que cuentan historias.
+          </span> 
         </h2>
 
         {/* Descripción */}
@@ -55,10 +45,10 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button 
             onClick={() => handleScroll('contacto')}
-            className="px-8 py-4 rounded-2xl font-bold text-lg text-white shadow-2xl hover:shadow-blue-500/30 hover:scale-105 active:scale-95 transition-all duration-300 w-full sm:w-auto"
+            className="px-8 py-4 rounded-2xl font-bold text-lg text-white shadow-2xl hover:shadow-red-500/30 hover:scale-105 active:scale-95 transition-all duration-300 w-full sm:w-auto"
             style={{ backgroundColor: "var(--accent)" }}
           >
-            Agenda tu cita
+            Inicia tu proyecto
           </button>
           
           <button 
@@ -70,17 +60,17 @@ export default function Hero() {
               backgroundColor: "transparent"
             }}
           >
-            Nuestros Servicios
+            Ver servicios
           </button>
         </div>
 
-        {/* Stats rápidos o prueba social sutil */}
+        {/* Stats rápidos */}
         <div className="mt-16 flex justify-center gap-8 opacity-60 text-sm font-medium" style={{ color: "var(--text-secondary)" }}>
           <div className="flex items-center gap-2">
-            <span className="text-blue-500 text-xl">★</span> +10k Pacientes Felices
+            <span className="text-red-500 text-xl">★</span> +200 Proyectos Creativos
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-blue-500 text-xl">★</span> Expertos Certificados
+            <span className="text-red-500 text-xl">★</span> Diseñadores Expertos
           </div>
         </div>
       </div>
