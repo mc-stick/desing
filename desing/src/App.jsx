@@ -27,7 +27,7 @@ function PublicLayout() {
       <Products />
       <Proyectos />
       <Gallery />
-      <Reviews />
+      {/* <Reviews /> */}
       <Contact />
       <Footer />
     </div>

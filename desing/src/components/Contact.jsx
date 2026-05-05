@@ -1,5 +1,6 @@
 import { MapPinIcon, PhoneCallIcon, PhoneIcon } from "lucide-react"
 import { useState } from "react"
+import { COMPANY_INFO } from "../constants/branding"
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -74,7 +75,7 @@ export default function Contact() {
                 className="text-lg mb-8 opacity-80 leading-relaxed"
                 style={{ color: "var(--text-secondary)" }}
               >
-                Nuestro equipo creativo está listo para ayudarte a construir tu marca, diseñar experiencias visuales únicas y llevar tu proyecto al siguiente nivel.
+                Nuestro equipo creativo está listo para ayudarte a construir tus ideas en experiencias visuales únicas y llevar tu proyecto al siguiente nivel.
               </p>
 
               <div className="space-y-4">
@@ -82,13 +83,13 @@ export default function Contact() {
                   <div className="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center text-red-500">
                     <MapPinIcon size={20} />
                   </div>
-                  <span style={{ color: "var(--text-primary)" }}>Santiago, República Dominicana</span>
+                  <span style={{ color: "var(--text-primary)" }}>{COMPANY_INFO.location}</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-500">
                     <PhoneCallIcon size={20} />
                   </div>
-                  <span style={{ color: "var(--text-primary)" }}>+1 (000) 000-0000</span>
+                  <span style={{ color: "var(--text-primary)" }}>{COMPANY_INFO.phone}</span>
                 </div>
               </div>
             </div>
@@ -144,7 +145,7 @@ export default function Contact() {
                 <button 
                   type="submit"
                   disabled={loading}
-                  className="w-full py-5 rounded-2xl font-bold text-xl text-white shadow-xl hover:shadow-red-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 flex items-center justify-center gap-2"
+                  className="w-full py-5 hover:cursor-pointer rounded-2xl font-bold text-xl text-white shadow-xl hover:shadow-red-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 flex items-center justify-center gap-2"
                   style={{ 
                     backgroundColor: "var(--accent)",
                     boxShadow: "0 10px 25px -5px rgba(239, 68, 68, 0.4)"

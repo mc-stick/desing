@@ -1,11 +1,13 @@
+import { ComputerIcon, CuboidIcon, HexagonIcon, MapPinIcon, PencilLineIcon, PersonStandingIcon, Presentation } from "lucide-react"
+
 export default function Services() {
 
   const services = [
-    { name: "Branding", icon: "🎨", desc: "Construcción de identidades visuales sólidas y memorables." },
-    { name: "Diseño UI/UX", icon: "🖥️", desc: "Interfaces modernas enfocadas en experiencia de usuario." },
-    { name: "Identidad Visual", icon: "✨", desc: "Sistemas gráficos completos para marcas profesionales." },
-    { name: "Consultoría Creativa", icon: "🚀", desc: "Dirección estratégica para potenciar tu marca." },
-    { name: "Contenido Digital", icon: "📱", desc: "Diseño de piezas visuales para redes y campañas." }
+   { name: "Rigging", icon: <PersonStandingIcon size={28} className="mx-auto mb-2 text-red-500" />, desc: "Creación de estructuras de control para animaciones de personajes y objetos 3D." },
+{ name: "Modeling", icon: <CuboidIcon size={24} className="mx-auto mb-4 text-purple-500" />, desc: "Diseño y construcción de modelos tridimensionales detallados y optimizados." },
+{ name: "Animation 3D", icon: <HexagonIcon size={24} className="mx-auto mb-4 text-blue-500" />, desc: "Animación de modelos 3D con movimiento fluido y realista para proyectos visuales." },
+{ name: "Drawing", icon: <PencilLineIcon size={24} className="mx-auto mb-4 text-green-500" />, desc: "Ilustración digital y tradicional para concept art y diseño creativo." },
+{ name: "Programing", icon: <ComputerIcon size={24} className="mx-auto mb-4 text-yellow-500" />, desc: "Desarrollo de código para crear aplicaciones, sistemas y experiencias interactivas." }
   ]
 
   return (
@@ -22,6 +24,7 @@ export default function Services() {
           >
             Servicios <span className="text-red-500">Creativos</span>
           </h2>
+          
           <p 
             className="max-w-2xl mx-auto opacity-70 leading-relaxed"
             style={{ color: "var(--text-secondary)" }}

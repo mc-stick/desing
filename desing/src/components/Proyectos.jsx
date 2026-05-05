@@ -9,8 +9,8 @@ export default function Proyectos() {
   const mockProjects = [
     {
       id: 1,
-      name: "Branding Nova",
-      type: "branding",
+      name: "Rigging new",
+      type: "rigging",
       complexity: "media",
       duration: "2 semanas",
       description: "Identidad visual moderna y versátil",
@@ -79,7 +79,7 @@ export default function Proyectos() {
 
         {/* Filtros */}
         <div className="flex justify-center gap-4 mb-10">
-          {["all", "branding", "ui"].map((type) => (
+          {["All", "Modeling ", "Rigging", "Drawing"].map((type) => (
             <button
               key={type}
               onClick={() => setFilter(type)}

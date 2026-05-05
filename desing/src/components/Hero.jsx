@@ -42,10 +42,10 @@ export default function Hero() {
         </p>
 
         {/* Grupo de botones */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col  sm:flex-row items-center justify-center gap-4">
           <button 
             onClick={() => handleScroll('contacto')}
-            className="px-8 py-4 rounded-2xl font-bold text-lg text-white shadow-2xl hover:shadow-red-500/30 hover:scale-105 active:scale-95 transition-all duration-300 w-full sm:w-auto"
+            className="px-8 py-4 hover:cursor-pointer rounded-2xl font-bold text-lg text-white shadow-2xl hover:shadow-red-500/30 hover:scale-105 active:scale-95 transition-all duration-300 w-full sm:w-auto"
             style={{ backgroundColor: "var(--accent)" }}
           >
             Inicia tu proyecto
@@ -53,7 +53,7 @@ export default function Hero() {
           
           <button 
             onClick={() => handleScroll('servicios')}
-            className="px-8 py-4 rounded-2xl font-bold text-lg border transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-800 w-full sm:w-auto"
+            className="px-8 py-4 hover:cursor-pointer rounded-2xl font-bold text-lg border transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-800 w-full sm:w-auto"
             style={{ 
               borderColor: "var(--border)",
               color: "var(--text-primary)",
@@ -65,14 +65,14 @@ export default function Hero() {
         </div>
 
         {/* Stats rápidos */}
-        <div className="mt-16 flex justify-center gap-8 opacity-60 text-sm font-medium" style={{ color: "var(--text-secondary)" }}>
+        {/* <div className="mt-16 flex justify-center gap-8 opacity-60 text-sm font-medium" style={{ color: "var(--text-secondary)" }}>
           <div className="flex items-center gap-2">
             <span className="text-red-500 text-xl">★</span> +200 Proyectos Creativos
           </div>
           <div className="flex items-center gap-2">
             <span className="text-red-500 text-xl">★</span> Diseñadores Expertos
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )

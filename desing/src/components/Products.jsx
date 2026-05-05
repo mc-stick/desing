@@ -65,7 +65,7 @@ export default function Products() {
               className="text-4xl font-extrabold tracking-tight mb-2"
               style={{ color: "var(--text-primary)" }}
             >
-              Estudio <span className="text-red-500">{BRAND_NAME}</span>
+               <span className="text-red-500">{BRAND_NAME}</span>
             </h2>
             <p style={{ color: "var(--text-secondary)" }}>
               Recursos creativos para potenciar tu identidad visual.
@@ -112,7 +112,7 @@ export default function Products() {
                     />
                     {/* Precio */}
                     <div className="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-md px-3 py-1 rounded-full shadow-lg font-bold text-sm">
-                      <p style={{ color: "var(--text-secondary)" }}>${p.price.toFixed(2)}</p>
+                      <p style={{ color: "var(--text-secondary)" }}>desde ${p.price.toFixed(2)}</p>
                     </div>
                   </div>
                 </div>
