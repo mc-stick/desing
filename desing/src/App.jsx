@@ -7,7 +7,6 @@ import { useState } from 'react'
 import Hero from './components/Hero'
 import Services from './components/Services'
 import Products from './components/Products'
-import Proyectos from './components/Proyectos'
 import Gallery from './components/Gallery'
 import Reviews from './components/Reviews'
 import Contact from './components/Contact'
@@ -25,7 +24,6 @@ function PublicLayout() {
       <Hero />
       <Services />
       <Products />
-      <Proyectos />
       <Gallery />
       {/* <Reviews /> */}
       <Contact />
