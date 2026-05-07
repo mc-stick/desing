@@ -11,7 +11,6 @@ export const BRAND_DESCRIPTION = `En ${BRAND_NAME}, transformamos tus ideas en d
 export const NAVIGATION_ITEMS = [
   { label: "Inicio", id: "inicio" },
   { label: "Servicios", id: "servicios" },
-  { label: "Productos", id: "productos" },
   { label: "Proyectos", id: "proyectos" },
   { label: "Contacto", id: "contacto" }
 ]

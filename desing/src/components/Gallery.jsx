@@ -32,7 +32,7 @@ export default function Gallery() {
   };
 
   return (
-    <section className="py-20 px-6 transition-colors duration-500" style={{ backgroundColor: "var(--background)" }}>
+    <section id="proyectos" className="py-20 px-6 transition-colors duration-500" style={{ backgroundColor: "var(--background)" }}>
       <div className="max-w-7xl mx-auto">
         <header className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tighter" style={{ color: "var(--text-primary)" }}>

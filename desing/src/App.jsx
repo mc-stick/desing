@@ -23,7 +23,7 @@ function PublicLayout() {
       <Navbar />
       <Hero />
       <Services />
-      <Products />
+      {/* <Products /> */}
       <Gallery />
       {/* <Reviews /> */}
       <Contact />
